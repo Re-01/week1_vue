@@ -46,8 +46,10 @@
     </header>
 
     <ul class="video-poster-wrapper">
-      <li>
-        <a></a>
+      <li v-for="movie in videodata">
+        <a :href="movie.vidsource" @click.prevent="showMovieDetails(movie)">
+          <img :src="'images/' + movie.thumb" alt="movie poster">
+        </a>
       </li>
     </ul>
 
@@ -55,11 +57,11 @@
       <i>Click on a poster to preview the movie!</i>
     </p>
 
-    <section class="hidden-movies">
-      <h3 class="movie-title"></h3>
-      <video></video>
+    <section class="hidden-movies" :class="{'show-movie' : showDetails}"> <!--  -->
+      <h3 class="movie-title">{{ videotitle }}</h3>
+      <video :src="'video/' + vidsource" controls autoplay></video>
       <div class="movie-details">
-        <p></p>
+        <p>{{ videodescription }}</p>
       </div>
     </section>
 
