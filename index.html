@@ -20,8 +20,8 @@
         <ul>
           <!-- avatar / user icon-->
           <!-- if the user has an avatar, show it -->
-          <li v-if="user.avatar">
-            <img :src="'images/' + user.avatar" alt="user avatar" class="u-avatar">
+          <li v-if="user.settings.avatar">
+            <img :src="'images/' + user.settings.avatar" alt="user avatar" class="u-avatar">
           </li>
 
           <!-- else show this -->
@@ -32,7 +32,7 @@
 
           <!-- settings icon / functionality -->
           <!-- if our user object has admin rights, then show this -->
-          <li v-if="user.isAdmin">
+          <li v-if="user.settings.isadmin">
             <i v-on:click="setUserPrefs" class="fas fa-cog" role="button"></i>
           </li>
           <!-- end user settings -->
